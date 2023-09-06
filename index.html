@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" style="font-family: 'Ubuntu', sans-serif;">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ajay Anto</title>
+    <script type="module" crossorigin src="/assets/index-ea018df6.js"></script>
+    <link rel="stylesheet" href="/assets/index-26cf5ea8.css">
+</head>
+
+<body class="bg-black h-full">
+    <div id="navbarTextDiv" class="w-full h-full bg-black opacity-0 justify-center items-center fixed pointer-events-none transition-opacity duration-1000 !hidden ">
+        <p class="text-white text-6xl navbarText1 opacity-1" id="navbarText"></p>
+    </div>
+    <div id="section-1" class="w-full h-screen">
+        <div>
+            <div id="particles" class="w-full h-full !absolute -z-50 bg-[#2D2727]"></div>
+            <div id="overlay" class="absolute h-full w-full -z-40 opacity-10 bg-whit"></div>
+        </div>
+
+        <div id="home" class="grid grid-cols-1 md:grid-cols-3 w-full h-full">
+            <div class="w-full h-full"></div>
+            <div class="w-full h-full flex items-center justify-center flex-col gap-14">
+                <p class="text-7xl text-white text-center font-bold"><span class="text-[#8F43EE]">Ajay</span> Anto</p>
+                <p class="text-4xl text-white text-center font-extralight">I'm a <span class="text-[#8F43EE]" id="typewriter"></span></p>
+            </div>
+            <div class="w-full h-full">
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-black z-10 sticky top-0 bottom-0" id="navbar">
+        <div class="flex justify-center gap-16 py-4">
+            <div class="flex justify-center"><a href="#home" name="navbarLink" class="text-white text-3xl hover:underline hover:text-blue-500 transition-all">Home</a></div>
+            <div class="flex justify-center"><a href="#about" name="navbarLink" class="text-white text-3xl hover:underline hover:text-blue-500 transition-all">About</a></div>
+            <div class="flex justify-center"><a href="#projects" name="navbarLink" class="text-white text-3xl hover:underline hover:text-blue-500 transition-all">Projects</a></div>
+        </div>
+    </div>
+
+    <div class="w-full h-screen flex" id="section-2">
+        <canvas id="renderSurface" class=" h-full w-full"></canvas>
+    </div>
+
+
+    <div class="w-full h-[500px] bg-red-500" id="section-3">
+
+    </div>
+
+    <script src="/assets/magicmouse.js"></script>
+    <script src="/assets/particles.min.js"></script>
+    <script src="/assets/fluid.js"></script>
+    <script>
+        const canvas = document.getElementById('renderSurface');
+        let myFluid = new Fluid(canvas);
+        myFluid.mapBehaviors({
+            sim_resolution: 128,
+            dye_resolution: 1028,
+
+            paused: false,
+            embedded_dither: true,
+
+            dissipation: .97,
+            velocity: 0.97,
+            pressure: .8,
+            pressure_iteration: 20,
+            curl: 1,
+            emitter_size: 1,
+
+            render_shaders: true,
+            multi_color: true,
+
+            render_bloom: true,
+            bloom_iterations: 80,
+            bloom_resolution: 1028,
+            intensity: 0.8,
+            threshold: 0.6,
+            soft_knee: 1,
+
+            background_color: {
+                r: 15,
+                g: 15,
+                b: 15
+            },
+            transparent: false
+        });
+
+        myFluid.activate();
+        addEventListener("mousemove", (event) => {
+            console.log("yep")
+            document.querySelector("canvas").dispatchEvent(new Event("mousedown", {
+                pageX: event.x,
+                pageY: event.y
+            }));
+        })
+    </script>
+
+    <script>
+        particlesJS.load('particles', 'particlesjs.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
+</body>
+
+</html>
