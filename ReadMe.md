@@ -1,5 +1,5 @@
 # 💫 About Me:
-Hello there i am Ajay Anto I am a Pythonist and a  Web Developer. I have a passion for Open Source Projects and always looking to contribute
+Hello there i am Ajay Anto I am a 15 year old Pythonist and a  Web Developer. I have a passion for Open Source Projects and always looking to contribute
 
 
 # 💻 Tech Stack:
